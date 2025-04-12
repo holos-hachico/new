@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聖なる自分に出会う旅 - はったえい子による特別セッション</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --earth-green-light: #A8BCA1;
+            --earth-green: #6C8C5D;
+            --earth-green-dark: #4A6D40;
+            --golden-yellow: #D4AF37;
+            --golden-yellow-light: #F2E3A0;
+            --cream: #F5F3E7;
+            --sand: #D3C8A8;
+            --charcoal: #333333;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333333;
+            background-color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 500;
+        }
+        
+        .cosmic-bg {
+            background: linear-gradient(to bottom, #2D3047, #1C1E2E);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cosmic-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
+        .earth-green-gradient {
+            background: linear-gradient(135deg, var(--earth-green-light), var(--earth-green), var(--earth-green-dark));
+        }
+        
+        .earth-cream-gradient {
+            background: linear-gradient(135deg, var(--cream), var(--sand));
+        }
+        
+        .cosmic-earth-gradient {
+            background: linear-gradient(135deg, #2D3047 0%, var(--earth-green-dark) 50%, var(--earth-green) 100%);
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, var(--golden-yellow), var(--golden-yellow-light), var(--golden-yellow));
+            background-size: 200% 200%;
+            color: #3A3A3A;
+            font-weight: 700;
+            padding: 12px 32px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            animation: shimmer 3s infinite;
+            transform: translateZ(0);
+        }
+        
+        .cta-button:hover {
+            box-shadow: 0 7px 20px rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .contact-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--golden-yellow);
+            color: var(--golden-yellow);
+            padding: 8px 24px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .section-divider {
+            height: 3px;
+            width: 15%;
+            margin: 2rem auto;
+            background: linear-gradient(to right, transparent, var(--golden-yellow), transparent);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .constellation {
+            position: absolute;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .bg-earth-green {
+            background-color: var(--earth-green);
+        }
+        
+        .bg-earth-green-light {
+            background-color: var(--earth-green-light);
+        }
+        
+        .text-earth-green {
+            color: var(--earth-green);
+        }
+        
+        .text-golden {
+            color: var(--golden-yellow);
+        }
+        
+        .text-green-highlight {
+            color: var(--earth-green-dark);
+            font-weight: 500;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--golden-yellow);
+            box-shadow: 0 0 10px var(--golden-yellow);
+        }
+        
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: 0.45rem;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(to bottom, var(--golden-yellow), transparent);
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-item i {
+            color: var(--golden-yellow);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        
+        /* Star background */
+        #stars-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .header-cta-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .quote {
+            position: relative;
+            font-style: italic;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--golden-yellow);
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダーセクション -->
+    <header class="cosmic-bg relative py-24 px-4 text-white text-center">
+        <div id="stars-container"></div>
+        <div class="container mx-auto relative z-10">
+            <h4 class="text-golden-yellow-light uppercase tracking-widest text-sm mb-2">ご自身の神聖な可能性に出会う特別な旅</h4>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">宇宙の叡智と繋がる<br>「聖なる自分に出会う旅」</h1>
+            <h2 class="text-xl md:text-2xl mb-8 font-light">✧ はったえい子による特別セッション ✧</h2>
+            <h3 class="text-lg md:text-xl italic mb-10">〜西洋占星術はじめ、様々な占術から紐解く、あなただけの宇宙地図〜</h3>
+            
+            <div class="mb-12 inline-block py-2 px-4 bg-golden-yellow text-charcoal rounded-lg shadow-lg">
+                <p class="font-bold">春の新生活特別企画 ～4月末まで限定受付開催～</p>
+                <p class="text-sm">（セッション開催日は双方の調整により期間は4月以降も可能です）</p>
+            </div>
+            
+            <div class="header-cta-container space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
+                <a href="#booking" class="cta-button inline-block">今すぐ宇宙の旅へ</a>
+                <a href="#contact" class="contact-button inline-block">ご質問はこちら</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 導入セクション -->
+    <section class="py-20 px-4 earth-cream-gradient relative">
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl mb-10 font-semibold text-earth-green">あなたは偶然ここにいるのではない</h2>
+                <div class="quote text-lg">
+                    <p class="text-center italic">「あなたの魂は、特定の目的を持ってこの地球に降り立ちました。<br>その神聖な目的を思い出す時が来たのです。」</p>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <p class="mb-4">広大な宇宙の中で、私たち一人ひとりは唯一無二の存在。しかし日常の喧騒の中で、多くの方が本来の輝きを見失ってしまっています。</p>
+                
+                <p class="text-center font-bold text-xl my-8">このセッションは、宇宙の視点から「本来のあなた」を再発見する神聖な旅です。</p>
+                
+                <p>西洋占星術をはじめとする様々な占術とパワーストーン、そしてタイムウェーバーの導きを通して、あなただけの宇宙地図を紐解き、これからのセカンド・サードライフをより豊かに、自分らしく彩るための道標をお届けします。</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="#session-details" class="cta-button inline-block">セッション詳細を見る</a>
+            </div>
+        </div>
+        
+        <!-- 装飾用星座 -->
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="visibility: hidden; opacity: 0; position: absolute;" /> <!-- ダミー画像 -->
+        <svg class="constellation" style="right: 5%; top: 15%; width: 150px; height: 150px;" viewBox="0 0 200 200">
+            <path d="M50,20 L80,40 L120,30 L150,60 L130,100 L90,120 L40,90" stroke="var(--golden-yellow)" stroke-width="1" fill="none" opacity="0.3" />
+            <circle cx="50" cy="20" r="3" fill="var(--golden-yellow)" />
+            <circle cx="80" cy="40" r="2" fill="var(--golden-yellow)" />
+            <circle cx="120" cy="30" r="4" fill="var(--golden-yellow)" />
+            <circle cx="150" cy="60" r="2" fill="var(--golden-yellow)" />
+            <circle cx="130" cy="100" r="3" fill="var(--golden-yellow)" />
+            <circle cx="90" cy="120" r="2" fill="var(--golden-yellow)" />
+            <circle cx="40" cy="90" r="3" fill="var(--golden-yellow)" />
+        </svg>
+    </section>
+
+    <!-- 対象者セクション -->
+    <section class="py-20 px-4 bg-white relative" id="for-whom">
+        <svg class="constellation" style="left: 5%; top: 10%; width: 200px; height: 200px;" viewBox="0 0 200 200">
+            <path d="M30,40 L70,30 L100,60 L150,50 L170,90 L120,120 L80,110 L40,130" stroke="var(--earth-green)" stroke-width="1" fill="none" opacity="0.3" />
+            <circle cx="30" cy="40" r="2" fill="var(--earth-green)" />
+            <circle cx="70" cy="30" r="3" fill="var(--earth-green)" />
+            <circle cx="100" cy="60" r="4" fill="var(--earth-green)" />
+            <circle cx="150" cy="50" r="2" fill="var(--earth-green)" />
+            <circle cx="170" cy="90" r="3" fill="var(--earth-green)" />
+            <circle cx="120" cy="120" r="2" fill="var(--earth-green)" />
+            <circle cx="80" cy="110" r="4" fill="var(--earth-green)" />
+            <circle cx="40" cy="130" r="2" fill="var(--earth-green)" />
+        </svg>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 text-earth-green font-semibold">この旅はこんな方のためにあります</h2>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl text-center mb-8 text-earth-green">こんな感覚をお持ちではありませんか？</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card p-6">
+                        <div class="flex items-start">
+                            <span class="text-3xl text-golden mr-3">🌕</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-earth-green mb-2">心機一転、新生活の始まりのこのとき</h4>
+                                <p>セカンドライフを豊かに模索したい ― 新たなステップを確信を持って踏み出したい</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="flex items-start">
+                            <span class="text-3xl text-golden mr-3">🌙</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-earth-green mb-2">何か大切なものを見失っている感覚</h4>
+                                <p>本当の自分らしさを取り戻したい ― 魂の声に耳を傾けたい</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="flex items-start">
+                            <span class="text-3xl text-golden mr-3">⭐</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-earth-green mb-2">心の満足や内なる調和を求める</h4>
+                                <p>魂レベルでの充実感を求めている ― 深い充足感のある日々を過ごしたい</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="flex items-start">
+                            <span class="text-3xl text-golden mr-3">🌍</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-earth-green mb-2">ライフスタイルを革新したい</h4>
+                                <p>自然と調和し、自分らしく生きる方法を見つけたい</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6">
+                        <div class="flex items-start">
+                            <span class="text-3xl text-golden mr-3">🌠</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-earth-green mb-2">社会の「べき論」から解放されたい</h4>
+                                <p>本当に自分らしい生き方を創造したい ― 内なる声に従って生きたい</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-6 bg-earth-green-light bg-opacity-20">
+                        <div class="flex items-center justify-center h-full">
+                            <p class="text-lg text-earth-green text-center font-bold italic">「もっと自分らしく生きたい」<br>というあなたの想いは、<br>魂からの大切なメッセージです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#booking" class="cta-button inline-block">セッションに申し込む</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- セッション詳細 -->
+    <section class="py-20 px-4 earth-green-gradient text-white relative" id="session-details">
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 font-semibold">セッションの神秘を紐解く</h2>
+            
+            <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-filter backdrop-blur-sm mb-16">
+                <h3 class="text-2xl text-center mb-8 text-golden-yellow font-semibold">「聖なる自分に出会う旅 ～Cosmic Self Discovery Journey～」</h3>
+                
+                <p class="mb-6">このセッションでは、はったえい子が古代の叡智と最新の宇宙科学の視点から、あなたの本質を多角的に読み解きます。西洋占星術、タロット、数秘術などの占術に加え、パワーストーンの力も活用し、あなたの魂が本来持つ輝きを引き出します。</p>
+                
+                <div class="my-10">
+                    <h4 class="text-xl mb-4 text-golden-yellow">セッションの流れ：</h4>
+                    
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <h5 class="font-bold text-golden-yellow">宇宙地図の解読</h5>
+                            <p>あなたの誕生時の天体配置から、生まれ持った才能、気質、使命を紐解きます。魂が今世で学ぶべきテーマや開花させたい才能を明らかにします。</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h5 class="font-bold text-golden-yellow">魂の旅路の探索</h5>
+                            <p>現在のサイクルと、これからのエネルギーの流れを読み解きます。今後の人生の転機や、エネルギーの高まる時期を予測し、最適なアクションのタイミングをアドバイスします。</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h5 class="font-bold text-golden-yellow">潜在意識の解放</h5>
+                            <p>制限的な思い込みを特定し、新たな可能性への扉を開きます。過去生や幼少期からのパターンを解放し、真の自己表現への道を開きます。</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h5 class="font-bold text-golden-yellow">調和への導き</h5>
+                            <p>あなた固有の波動に合わせた実践的なアラインメント手法をお伝えします。日常生活に取り入れられる具体的な瞑想法や儀式、そしてあなたに最適なパワーストーンもご紹介します。</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h5 class="font-bold text-golden-yellow">神聖なる目的の確認</h5>
+                            <p>この地球での役割と、魂の喜びを感じる生き方へのビジョンを明確にします。あなたが本来持つ神聖な使命と、それを現実世界で表現する具体的な方法をお伝えします。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h4 class="text-xl mb-4 text-golden-yellow">パーソナライズされたアプローチ</h4>
+                    <p>セッションは一人ひとりの状況やニーズに合わせて、コンサルティング、コーチング、カウンセリングなど最適な方法で進めていきます。現実的な課題解決から、スピリチュアルな成長まで、あなたに必要なサポートを提供します。</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4 text-center">
+                        <i class="fas fa-comments text-2xl text-golden-yellow mb-2"></i>
+                        <h5 class="font-bold mb-1">コンサルティング</h5>
+                        <p class="text-sm">具体的な人生の選択や転機における最適な決断をサポート</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4 text-center">
+                        <i class="fas fa-chart-line text-2xl text-golden-yellow mb-2"></i>
+                        <h5 class="font-bold mb-1">コーチング</h5>
+                        <p class="text-sm">目標達成や自己成長へのプロセスを促進し伴走</p>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4 text-center">
+                        <i class="fas fa-heart text-2xl text-golden-yellow mb-2"></i>
+                        <h5 class="font-bold mb-1">カウンセリング</h5>
+                        <p class="text-sm">心の傷や感情パターンの解放をサポート</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 rounded-lg p-6 backdrop-filter backdrop-blur-sm">
+                    <h4 class="text-xl mb-4 text-golden-yellow text-center">セッション詳細</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="mb-2"><i class="fas fa-map-marker-alt text-golden-yellow mr-2"></i> <strong>場所</strong>: オンラインセッション (Google Meet)</p>
+                            <p class="mb-2"><i class="fas fa-clock text-golden-yellow mr-2"></i> <strong>所要時間</strong>: 約2時間（質疑応答含む）</p>
+                        </div>
+                        <div>
+                            <p class="mb-2"><i class="fas fa-yen-sign text-golden-yellow mr-2"></i> <strong>料金</strong>: 18,000円（税込）</p>
+                            <p><i class="fas fa-gift text-golden-yellow mr-2"></i> <strong>特典</strong>: タイムウェーバーによる個人用・1ヶ月波動調整付き<br>（一般的な通常価格 20,000円超の価値）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row justify-center items-center">
+                <a href="#timeweaver" class="cta-button inline-block">タイムウェーバーについて詳しく</a>
+                <a href="#contact" class="contact-button inline-block">セッションに関するご質問</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- はったえい子プロフィール -->
+    <section class="py-20 px-4 bg-white relative">
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 text-earth-green font-semibold">ガイド：はったえい子</h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-10 mb-16">
+                <div class="md:w-1/3">
+                    <div class="rounded-full overflow-hidden border-4 border-golden-yellow shadow-xl" style="width: 250px; height: 250px; margin: 0 auto;">
+                        <!-- プロフィール画像をここに配置 -->
+                        <div class="w-full h-full bg-gradient-to-br from-earth-green-light to-earth-green flex items-center justify-center">
+                            <span class="text-white text-4xl"><i class="fas fa-user"></i></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                    <div class="quote mb-6 text-lg">
+                        <p class="italic">「私の使命は、一人ひとりが持つ宇宙的な輝きを再び思い出すお手伝いをすること。私個人のこれまでの様々な経験や知見、困難を乗り越えてきたことなどを通じアドバイスできる範囲はかなり広いと思います。特に人生の転換期にある女性たちが、本来持っている叡智と可能性を再発見し、自分らしいライフスタイルを創造するサポートを得意としています。」</p>
+                    </div>
+                    
+                    <p class="mb-4">現代科学と古代の英知を融合させた独自のアプローチで、目に見えないエネルギーの法則を日常生活に活かす実践的な方法を伝えています。特に40代以降の女性の本質と可能性を読み解くことに定評があります。</p>
+                    
+                    <p>西洋占星術、タロット、数秘術を通じて、パワーストーンなどを用いて行うオリジナルのセッションには新しい扉を開いたと多くの方から高評価をいただいています。一方、暮らしに関わること、困難を乗り越え前向きに、笑って楽しく、強く美しく生きることには社会的にも評価をいただいています。</p>
+                    
+                    <p class="mt-4">それらは30年にわたる経験で雑誌などでも紹介され社会的な影響力もある中で多くの方々の人生を豊かに彩るお手伝いをして参りました。これから、HOLOS という 8つの生きるchannel から学びを深めるコミュニティを主宰します。一人でも多くの人々に自分らしい人生を築く手助けをさせていただけることに何よりの幸せを感じています。</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="inline-block text-earth-green border-b-2 border-earth-green hover:text-golden-yellow hover:border-golden-yellow transition-colors duration-300">詳しいプロフィールを見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 変革の理由 -->
+    <section class="py-20 px-4 earth-cream-gradient relative">
+        <svg class="constellation" style="right: 10%; bottom: 15%; width: 200px; height: 200px;" viewBox="0 0 200 200">
+            <path d="M50,50 L90,30 L130,60 L170,40 L150,90 L100,120 L60,90" stroke="var(--earth-green)" stroke-width="1" fill="none" opacity="0.3" />
+            <circle cx="50" cy="50" r="3" fill="var(--earth-green)" />
+            <circle cx="90" cy="30" r="2" fill="var(--earth-green)" />
+            <circle cx="130" cy="60" r="4" fill="var(--earth-green)" />
+            <circle cx="170" cy="40" r="2" fill="var(--earth-green)" />
+            <circle cx="150" cy="90" r="3" fill="var(--earth-green)" />
+            <circle cx="100" cy="120" r="4" fill="var(--earth-green)" />
+            <circle cx="60" cy="90" r="2" fill="var(--earth-green)" />
+        </svg>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 text-earth-green font-semibold">変革の理由</h2>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl text-center mb-8 text-earth-green">春、新生活のはじまりの時に</h3>
+                
+                <p class="mb-4">春は再生と目覚めの象徴。このタイミングで自己を見つめ直すことは、新しい道を開く鍵になります。</p>
+                
+                <p class="mb-6">私たちは今、大きな宇宙的シフトの最中にいます。特に40代以降の女性にとって、これは単なる年齢の変化ではなく、魂の成熟と知恵が花開く貴重な時期です。宇宙の神秘的なサイクルも、今まさにこの「内なる目覚め」を強く後押ししているのです。</p>
+                
+                <div class="bg-white bg-opacity-70 rounded-xl p-6 shadow-lg mb-8">
+                    <h4 class="text-xl mb-4 text-earth-green font-semibold text-center">この季節に自分の本質を理解することで:</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="benefit-item">
+                            <i class="fas fa-compass text-xl"></i>
+                            <p>迷いの中でも直感的に正しい選択ができるようになります</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-battery-full text-xl"></i>
+                            <p>エネルギーを最適に使い、年齢を重ねても輝き続けられます</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-sync-alt text-xl"></i>
+                            <p>宇宙のリズムと調和した行動で、同期性や奇跡的な出会いが増えます</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-heart text-xl"></i>
+                            <p>魂の目的に沿った生き方で、深い充実感と平安を得られます</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-center font-bold text-lg text-earth-green">4月末までの特別限定セッションをお届けします。</p>
+                <p class="text-center text-sm">※セッション予約は4月末までですが、実施日は5月以降も調整可能です。</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="#booking" class="cta-button inline-block">特別セッションに申し込む</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- タイムウェーバー詳細 -->
+    <section class="py-20 px-4 cosmic-earth-gradient text-white relative" id="timeweaver">
+        <div id="stars-container"></div>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 font-semibold">タイムウェーバー：宇宙の波動に調和する革新的テクノロジー</h2>
+            
+            <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-filter backdrop-blur-sm mb-16">
+                <h3 class="text-2xl text-center mb-6 text-golden-yellow">特典：あなた専用の波動調整</h3>
+                
+                <div class="mb-8">
+                    <div class="floating mb-10 text-center">
+                        <div class="inline-block p-3 rounded-full bg-golden-yellow bg-opacity-20">
+                            <div class="rounded-full p-6 border-2 border-golden-yellow flex items-center justify-center">
+                                <i class="fas fa-infinity text-5xl text-golden-yellow"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mb-6">このセッションには、あなたの個人データに基づいた1ヶ月間のタイムウェーバーによる波動調整が含まれています。物理的な機器を持つ必要はなく、量子レベルであなたのエネルギーフィールドに作用します。</p>
+                </div>
+                
+                <div class="mb-10">
+                    <h4 class="text-xl mb-6 text-golden-yellow">タイムウェーバーとは？ — 世界最高峰の波動調整システム</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-6">
+                        <div>
+                            <div class="benefit-item">
+                                <i class="fas fa-atom text-lg"></i>
+                                <p>量子フィールドを活用し、エネルギーバランスを整える最新技術</p>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <i class="fas fa-fingerprint text-lg"></i>
+                                <p>あなたの生年月日と名前から算出された固有の周波数パターンに合わせたカスタマイズ</p>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <i class="fas fa-wave-square text-lg"></i>
+                                <p>自然界のシューマン共振や宇宙の調和周波数と連動し、深いレベルでのバランスを促進</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="benefit-item">
+                                <i class="fas fa-users-cog text-lg"></i>
+                                <p>ヨーロッパを中心に、多くの感度の高い女性たちに支持されている先進技術</p>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <i class="fas fa-briefcase text-lg"></i>
+                                <p>世界の富裕層や経営者、スポーツ選手など、パフォーマンスを重視する人々に日常的に活用されている</p>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <i class="fas fa-globe-americas text-lg"></i>
+                                <p>9カ国以上の研究機関での検証を経て、安全性と有効性が確認されている次世代テクノロジー</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="bg-golden-yellow bg-opacity-10 p-4 rounded-lg border border-golden-yellow border-opacity-30">
+                        タイムウェーバーの技術は、量子物理学の原理に基づいており、物質の最小単位である素粒子レベルからエネルギーパターンを調整します。これにより、現代社会の電磁波やストレスなどによって乱れた生体エネルギーを本来のバランス状態へと導きます。一般的には入手困難なこの技術が、本セッションでは特別に1ヶ月間の個人調整として提供されます。
+                    </p>
+                </div>
+                
+                <div class="mb-8">
+                    <h4 class="text-xl mb-4 text-golden-yellow">タイムウェーバーの効果（個人差があります）：</h4>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-brain text-2xl text-golden-yellow mb-2"></i>
+                            <p>直観力と創造性の向上</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-spa text-2xl text-golden-yellow mb-2"></i>
+                            <p>心身のストレス軽減とエネルギーレベルの安定</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-moon text-2xl text-golden-yellow mb-2"></i>
+                            <p>睡眠の質の改善</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-heartbeat text-2xl text-golden-yellow mb-2"></i>
+                            <p>若々しさと活力の維持</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-random text-2xl text-golden-yellow mb-2"></i>
+                            <p>同期性や偶然の出会いの増加</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-yin-yang text-2xl text-golden-yellow mb-2"></i>
+                            <p>本来の自分との再調整</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-sm italic mb-4">※効果には個人差があります。タイムウェーバーは医療機器ではありません。</p>
+                    
+                    <div class="inline-block bg-golden-yellow text-charcoal font-bold py-2 px-6 rounded-lg">
+                        <p>日本では極めて希少なサービス — HOLOSコミュニティでのみ提供</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#booking" class="cta-button inline-block">タイムウェーバー調整付きセッションを予約</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section class="py-20 px-4 bg-white relative">
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 text-earth-green font-semibold">お客様の声</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-earth-green-light flex items-center justify-center text-earth-green font-bold mr-4">
+                            K
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Kさん（46歳・デザイナー）</h4>
+                        </div>
+                    </div>
+                    
+                    <p class="italic text-gray-600 mb-4">「長年の仕事で成功はしていたものの、どこか心の奥に満たされない思いがありました。セッションでは、私が本当に情熱を感じる創作の方向性と、それを現実の暮らしに取り入れる具体的な方法が見えてきたんです。</p>
+                    
+                    <p class="italic text-gray-600 mb-4">はったえい子さんが読み解いてくれた私の星の配置は、まるで誰も知らない私の内面を言語化してくれたよう。</p>
+                    
+                    <p class="italic text-gray-600">タイムウェーバーの調整期間中は、特に創造力と直観が冴えわたり、長年温めていたプロジェクトを形にする勇気が湧いてきました。」</p>
+                </div>
+                
+                <div class="card p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-earth-green-light flex items-center justify-center text-earth-green font-bold mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Mさん（52歳・経営者）</h4>
+                        </div>
+                    </div>
+                    
+                    <p class="italic text-gray-600 mb-4">「子どもの独立を機に、自分自身の時間を取り戻したものの、何から始めればいいのか迷っていました。セッションでは、私が本当に情熱を注げる社会貢献の形と、今の仕事の経験を活かす方法について明確なビジョンを得られました。</p>
+                    
+                    <p class="italic text-gray-600 mb-4">特に印象的だったのは、子供の頃に強く惹かれていた活動が、実は私の魂の目的と深く関連していたこと。</p>
+                    
+                    <p class="italic text-gray-600">タイムウェーバーの調整が始まってからは、不思議と必要な人や情報が同期的に現れるようになり、新しいプロジェクトが驚くほど順調に進んでいます。」</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#booking" class="cta-button inline-block">あなたも変容の旅へ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOLOSコミュニティ -->
+    <section class="py-20 px-4 earth-green-gradient text-white relative">
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-12 font-semibold">HOLOS 8channel：次なるステップへ</h2>
+            
+            <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-filter backdrop-blur-sm mb-16">
+                <h3 class="text-2xl text-center mb-8 text-golden-yellow">宇宙の法則と共に生きるコミュニティ</h3>
+                
+                <p class="mb-8">個別セッションを経験した後、さらに深く自分と宇宙の関係性を探求したい方のために、HOLOS 8channelコミュニティが存在します。日本で唯一、タイムウェーバーの波動調整サービスを継続的に受けられる特別なコミュニティです。</p>
+                
+                <div class="mb-8">
+                    <h4 class="text-xl mb-6 text-golden-yellow text-center">HOLOS 8channelとは：</h4>
+                    
+                    <p class="mb-6">8つの異なる視点から人生をデザインする、意識進化のためのオンラインコミュニティです。特に40代以降の女性が、これからの人生をより豊かに、美しく、自分らしく生きるための知恵と実践を共有する場です。</p>
+                    
+                    <div class="p-4 bg-white bg-opacity-20 rounded-lg mb-6">
+                        <p class="font-bold text-center text-golden-yellow mb-2">日本で唯一のタイムウェーバー波動調整標準提供コミュニティ</p>
+                        <p class="text-sm text-center">通常は富裕層や経営者のみがアクセスできる高度な波動調整技術を、コミュニティメンバーなら誰でも受けられる特別な場所です。</p>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h4 class="text-xl mb-4 text-golden-yellow text-center">セッション参加者への特別な機会</h4>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-tag text-2xl text-golden-yellow mb-2"></i>
+                            <p>コミュニティへの特別価格でのご招待</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-star text-2xl text-golden-yellow mb-2"></i>
+                            <p>あなたの活動や才能を紹介できる場の提供</p>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg text-center">
+                            <i class="fas fa-envelope-open-text text-2xl text-golden-yellow mb-2"></i>
+                            <p>日常的に有用なメッセージを受け取ることができます</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#" class="inline-block py-2 px-6 bg-white bg-opacity-20 rounded-full text-golden-yellow hover:bg-opacity-30 transition-all duration-300 border border-golden-yellow">HOLOSコミュニティについて詳しく知る</a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="contact-button inline-block">コミュニティについての質問</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 予約セクション -->
+    <section class="py-20 px-4 cosmic-bg relative" id="booking">
+        <div id="stars-container"></div>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-3xl md:text-4xl text-center mb-6 text-white font-semibold">あなたの宇宙的な旅は、ここから始まります</h2>
+            
+            <h3 class="text-2xl text-center mb-12 text-golden-yellow">聖なる自分に出会う旅 ～Cosmic Self Discovery Journey～</h3>
+            
+            <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-filter backdrop-blur-sm mb-16">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h4 class="text-xl mb-6 text-golden-yellow">セッション概要</h4>
+                        
+                        <div class="space-y-4 text-white">
+                            <p><i class="fas fa-video text-golden-yellow mr-2"></i> オンラインセッション（約2時間）</p>
+                            <p><i class="fas fa-yen-sign text-golden-yellow mr-2"></i> 18,000円（税込）</p>
+                            <p><i class="fas fa-calendar-alt text-golden-yellow mr-2"></i> 特別企画: 4月末まで限定</p>
+                            <p><i class="fas fa-gift text-golden-yellow mr-2"></i> <strong class="text-golden-yellow">【特典】</strong> タイムウェーバーによる個人用・1ヶ月波動調整付き</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl mb-6 text-golden-yellow">お申し込み方法</h4>
+                        
+                        <div class="space-y-4 text-white">
+                            <p>1. 下のボタンをクリックして予約フォームにアクセス</p>
+                            <p>2. 希望日時を第3希望まで選択</p>
+                            <p>3. 簡単なご質問にお答えください</p>
+                            <p>4. 確認後、詳細をメールでご案内いたします</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center text-white mb-8">
+                    <p class="text-lg font-bold mb-2">残りわずか！ 各日程数名限定参加</p>
+                    <p>※セッション予約は4月末までですが、実施日は双方の調整により5月以降も可能です。</p>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#" class="cta-button inline-block text-lg py-4 px-10">今すぐ予約する</a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#contact" class="contact-button inline-block">ご不明点はこちらへ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section class="py-16 px-4 bg-white relative" id="contact">
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <h2 class="text-2xl text-center mb-10 text-earth-green font-semibold">ご質問・お問い合わせ</h2>
+            
+            <div class="card p-8 mb-10">
+                <p class="text-center mb-6">セッションやコミュニティについてのご質問は、こちらからお気軽にお問い合わせください。</p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <a href="mailto:info@holos8channel.com" class="bg-earth-green text-white py-3 px-6 rounded-lg text-center hover:bg-earth-green-dark transition-colors duration-300">
+                        <i class="fas fa-envelope mr-2"></i> メールでのお問い合わせ
+                    </a>
+                    
+                    <a href="#" class="bg-earth-green text-white py-3 px-6 rounded-lg text-center hover:bg-earth-green-dark transition-colors duration-300">
+                        <i class="fab fa-line mr-2"></i> LINEでのお問い合わせ
+                    </a>
+                </div>
+                
+                <p class="text-center text-sm text-gray-600">24時間以内に返信いたします。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="py-8 px-4 bg-earth-green-dark text-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-6">
+                <h3 class="text-xl mb-2">HOLOS 8channel Community</h3>
+                <p class="text-sm opacity-80">宇宙の叡智と繋がる、あなたらしい人生を創る場所</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-6 space-y-4 md:space-y-0 mb-8">
+                <a href="#" class="hover:text-golden-yellow transition-colors duration-300">プライバシーポリシー</a>
+                <a href="#" class="hover:text-golden-yellow transition-colors duration-300">特定商取引法に基づく表記</a>
+                <a href="#" class="hover:text-golden-yellow transition-colors duration-300">運営会社</a>
+            </div>
+            
+            <div class="text-center">
+                <p>お問い合わせ: <a href="mailto:info@holos8channel.com" class="text-golden-yellow hover:underline">info@holos8channel.com</a></p>
+            </div>
+            
+            <div class="text-center mt-6">
+                <p class="text-sm opacity-70">© 2023 HOLOS 8channel Community. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 星空の背景を作成
+        function createStars() {
+            const starsContainer = document.querySelectorAll('#stars-container');
+            
+            starsContainer.forEach(container => {
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+                
+                // 星の数を設定
+                const starCount = 100;
+                
+                // 星を生成
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    
+                    // ランダムな位置
+                    const left = Math.floor(Math.random() * containerWidth);
+                    const top = Math.floor(Math.random() * containerHeight);
+                    
+                    // ランダムなサイズと輝き
+                    const size = Math.random() * 2 + 1;
+                    const opacity = Math.random() * 0.7 + 0.3;
+                    
+                    star.style.left = `${left}px`;
+                    star.style.top = `${top}px`;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.opacity = opacity;
+                    
+                    // 輝きのアニメーション
+                    star.style.animation = `twinkle ${Math.random() * 5 + 3}s linear infinite`;
+                    
+                    container.appendChild(star);
+                }
+            });
+        }
+        
+        // ページが読み込まれたら星を生成
+        window.addEventListener('load', createStars);
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
